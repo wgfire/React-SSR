@@ -1,10 +1,10 @@
 const path = require("path");
 module.exports = {
-  entry: path.join(__dirname, "src/client/AppServer.js"),
+  entry: path.join(__dirname, "src/server/server.js"),
   target: 'node',
   mode:"production",
   output: {
-    filename: "AppServer.js",
+    filename: "server.js",
     path: path.join(__dirname, "dist"),
     libraryTarget: "commonjs2",
   },

@@ -1,12 +1,13 @@
 const path = require("path");
 const htmlPlugin = require("html-webpack-plugin");
-module.exports = {
+
+let config= {
   entry: path.join(__dirname, "src/client/index.js"),
-  mode: "development",
+  mode: "production",
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "dist"),
-    // publicPath:"/public/"
+    publicPath: process.env.NODE_ENV === "production" ? "/public/" : "",
   },
   module: {
     rules: [
@@ -20,6 +21,10 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  performance: {
+    maxEntrypointSize: 10000000,
+    maxAssetSize: 30000000,
   },
   plugins: [
     new htmlPlugin({
@@ -43,8 +48,17 @@ module.exports = {
           chunks: "initial",
           priority: -10,
         },
+        react: {
+          chunks: "all",
+          name: `react`,
+          test: /[\\/]node_modules[\\/]react-dom[\\/]/,
+          priority: 0,
+        },
       },
     },
   },
   devServer: {},
 };
+console.log(config.output.publicPath, "XX");
+
+module.exports  =config
