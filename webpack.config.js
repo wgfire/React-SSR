@@ -2,7 +2,7 @@ const path = require("path");
 const htmlPlugin = require("html-webpack-plugin");
 
 let config= {
-  entry: path.join(__dirname, "src/client/index.js"),
+  entry: ['react-hot-loader/patch',path.join(__dirname, "src/client/index.js")],
   mode: "production",
   output: {
     filename: "[name].js",
@@ -57,7 +57,9 @@ let config= {
       },
     },
   },
-  devServer: {},
+  devServer: {
+    hot: true,
+  },
 };
 console.log(config.output.publicPath, "XX");
 
