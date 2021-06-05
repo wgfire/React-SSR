@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Index from './view/index.jsx'
+import Index from "./view/index.jsx";
 import { Switch, Route } from "react-router-dom";
-import  router from  '../router/index'
+import router from "../router/index";
+import Page from "./view/page.jsx";
 const App = () => {
-  
-
   return (
-    <>
-    <Index />
-      {/* <Switch>
-       {
-         router.map(el=>{
-           return  <Route exact path={el.path} component={el.component} />
-         })
-       }
-      </Switch> */}
-    </>
+    <Switch>
+      <Route path="/" exact component={Index}></Route>
+      <Route path="/page" exact component={Page}></Route>
+    </Switch>
   );
 };
 

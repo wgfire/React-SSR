@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd-mobile";
-const Index = () => {
+const Page = () => {
   return (
     <>
       <Button
@@ -8,10 +8,10 @@ const Index = () => {
           alert("xx");
         }}
       >
-        index页面
+        page页面
       </Button>
     </>
   );
 };
 
-export default Index;
+export default Page;
