@@ -1,9 +1,9 @@
 import React from "react";
-import { render } from "react-dom";
+import { render ,hydrate} from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-render(
+hydrate(
   <BrowserRouter>
     <AppContainer>
       <App />
@@ -11,4 +11,4 @@ render(
   </BrowserRouter>,
   document.getElementById("root")
 );
-export default <App />;
+// export default <App />;

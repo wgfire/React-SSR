@@ -1,8 +1,8 @@
-import test from "../client/view/test.jsx";
+import index from "../client/view/index.jsx";
 
 export default [
   {
     path: "/",
-    component: test,
+    component: index,
   },
 ];

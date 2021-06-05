@@ -6,7 +6,7 @@ let config= {
   mode: "production",
   output: {
     filename: "[name].js",
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "dist/client"),
     publicPath: process.env.NODE_ENV === "production" ? "/public/" : "",
   },
   module: {
