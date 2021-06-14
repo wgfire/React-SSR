@@ -1,8 +1,11 @@
 const path = require("path");
 const htmlPlugin = require("html-webpack-plugin");
 
-let config= {
-  entry: ['react-hot-loader/patch',path.join(__dirname, "src/client/index.js")],
+let config = {
+  entry: [
+    "react-hot-loader/patch",
+    path.join(__dirname, "src/client/app/index.js"),
+  ],
   mode: "production",
   output: {
     filename: "[name].js",
@@ -17,8 +20,25 @@ let config= {
         exclude: "/node_modules/",
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                config: path.resolve(__dirname, "postcss.config.js"),
+              },
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
@@ -63,4 +83,4 @@ let config= {
 };
 console.log(config.output.publicPath, "XX");
 
-module.exports  =config
+module.exports = config;
