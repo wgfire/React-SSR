@@ -7,7 +7,7 @@ import withStyles from "isomorphic-style-loader/withStyles";
 // import { Button } from "antd-mobile";
 //组件
 const Index = (props) => {
-  const handeClick = () => {
+  const handedClick = () => {
     console.log("被点击了，，");
   };
   useEffect(() => {
@@ -16,7 +16,7 @@ const Index = (props) => {
     }
   }, []);
   return (
-    <div onClick={handeClick}>
+    <div onClick={handedClick}>
       <span className={styles.title}>我是首页</span>
     </div>
   );

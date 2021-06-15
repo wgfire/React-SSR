@@ -13,11 +13,14 @@ export default (req, res, next) => {
   console.log("req.path", req.path);
   const path = req.path;
   let context = {css: [] };
-  const html = renderToString(
-    <StaticRouter location={path} context={context}>
-      <App routeList={routeList}></App>
-    </StaticRouter>
-  );
+  Promise.all(promise=>{
+    const html = renderToString(
+      <StaticRouter location={path} context={context}>
+        <App routeList={routeList}></App>
+      </StaticRouter>
+    );
+  })
+
   const cssStr = context.css.length ? context.css.join('\n') : '';
   const style = `<style>${cssStr}</style>`
   let templateHtml = fs.readFileSync(

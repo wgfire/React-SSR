@@ -19,15 +19,15 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
           "isomorphic-style-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
-              importLoaders: 2,
               modules: true,
             },
           },
+
           {
             loader: "postcss-loader",
             options: {
@@ -36,7 +36,9 @@ module.exports = {
               },
             },
           },
+         
           "sass-loader",
+     
         ],
       },
     ],
