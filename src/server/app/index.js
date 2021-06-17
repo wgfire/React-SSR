@@ -15,7 +15,9 @@ const app = express(); //new Koa();
 //设置可访问的静态资源
 // app.use(koaStatic('./dist/static'));
 
-app.use("/public", express.static(path.join(__dirname, "../client"))); // 这个路径要用path.join拼接起来
+app.use("/public", express.static(path.join(__dirname, "../client"),{
+    cacheControl:"no-cache"
+})); // 这个路径要用path.join拼接起来
 
 //ssr 中间件
 app.use(reactSsr);
