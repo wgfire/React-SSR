@@ -9,7 +9,7 @@ import routeList from "../router/route-config";
 
 //渲染路由
 ReactDom.hydrate(
-  <BrowserRouter>
+  <BrowserRouter context={{ a: "xx" }}>
     <App routeList={routeList} />
   </BrowserRouter>,
   document.getElementById("root")

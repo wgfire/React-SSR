@@ -3,7 +3,7 @@
 
 import React, { useEffect } from "react";
 import styles from "./index.module.scss";
-import withStyles from "isomorphic-style-loader/withStyles";
+
 // import { Button } from "antd-mobile";
 //组件
 const Index = (props) => {
@@ -11,6 +11,7 @@ const Index = (props) => {
     console.log("被点击了，，");
   };
   useEffect(() => {
+    console.log("执行了css", props);
     if (props.staticContext) {
       props.staticContext.css.push(styles._getCss());
     }
