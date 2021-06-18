@@ -10,9 +10,10 @@ import { Provider } from "react-redux";
 
 import store from "../../store/index";
 // const Store = createStore(reducer);
+
 //渲染路由
-ReactDom.hydrate(
-  <Provider store={store}>
+ReactDom.render(
+  <Provider store={store({})}>
     <BrowserRouter context={{ a: "xx" }}>
       <App routeList={routeList} />
     </BrowserRouter>

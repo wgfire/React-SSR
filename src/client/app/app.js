@@ -1,4 +1,3 @@
-
 import Layout from "./layout";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
@@ -8,8 +7,18 @@ function App({ routeList }) {
   return (
     <Layout>
       <Switch>
-        {routeList.map((item) => {
-          return <Route exact key={item.path}  {...item} ></Route>;
+        {routeList.map(({ path, component }) => {
+          const C = component;
+          return (
+            <Route
+              exact
+              key={path}
+              path={path}
+              render={(p) => {
+                return <C />;
+              }}
+            ></Route>
+          );
         })}
       </Switch>
     </Layout>

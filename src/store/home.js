@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 
 const defaultState = {
   name: "x",
+  data: null,
 };
 const reducer = (state = defaultState, action) => {
   switch (action.type) {

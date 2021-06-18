@@ -5,5 +5,11 @@ import home from "./home";
 const reducer = combineReducers({
   home,
 });
-const store = createStore(reducer, applyMiddleware(thunk));
-export default store;
+//const store = createStore(reducer, applyMiddleware(thunk));
+
+
+
+const getStore =(defaultState={})=>{
+  return createStore(reducer, defaultState, applyMiddleware(thunk));
+}
+export default getStore

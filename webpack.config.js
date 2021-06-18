@@ -1,6 +1,6 @@
 const path = require("path");
 const htmlPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let config = {
   entry: [
     "react-hot-loader/patch",
@@ -22,7 +22,9 @@ let config = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          "style-loader",
+          // "isomorphic-style-loader",
+          MiniCssExtractPlugin.loader,
+
           {
             loader: "css-loader",
             options: {
@@ -37,6 +39,7 @@ let config = {
               },
             },
           },
+
           "sass-loader",
         ],
       },
@@ -47,6 +50,10 @@ let config = {
     maxAssetSize: 30000000,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
     new htmlPlugin({
       template: path.join(__dirname, "public/index.html"),
     }),

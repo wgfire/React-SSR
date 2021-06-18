@@ -1,6 +1,6 @@
 //路由配置文件
 
-import Index from '../pages/index';
+import Index, {_GetInitData} from '../pages/index';
 import List from '../pages/list';
 import About from '../pages/about';
 
@@ -9,12 +9,16 @@ export default [
     {
         path: '/',
         component: Index,
-        exact:true
+        exact:true,
+        initData: _GetInitData,
+        storeName:"home"
     },
     {
         path:'/index',
         component:Index,
-        exact:true
+        exact:true,
+        initData: _GetInitData,
+        storeName:"home"
     },
     {
         path: '/list',
