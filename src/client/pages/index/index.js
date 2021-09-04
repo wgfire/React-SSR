@@ -3,6 +3,7 @@
 
 import React, { useEffect } from "react";
 import styles from "./index.module.scss";
+import { hot } from "react-hot-loader/root";
 import { connect, useSelector, useDispatch } from "react-redux";
 // import { Button } from "antd-mobile";
 //组件
@@ -19,25 +20,26 @@ const Index = (props) => {
   const handedClick = () => {
     Dispatch({ type: "changeName", name: "wg" });
   };
-  // useEffect(() => {
+  useEffect(() => {
 
-  //    console.log('服务端不执行这个周期')
-  //   if (props.staticContext) {
-  //     props.staticContext.css.push(styles._getCss());
-  //   }
-  // }, []);
+     console.log('服务端不执行这个周期')
+    if (props.staticContext) {
+      props.staticContext.css.push(styles._getCss());
+    }
+  }, []);
 
   return (
     <div onClick={handedClick}>
       <span className={styles.title}>我是首页</span>
       <span className={styles.title}>{home.name}</span>
-      {/* <span >{data.name}</span> */}
+      <span>{data.name}</span>
     </div>
   );
 };
-export const _GetInitData = () => {
+export const _InitData = () => {
   return {
-    name: "初始化数据" ,
+    name: "初始化数据啊", 
   };
 };
-export default Index;
+
+export default hot(Index);

@@ -57,8 +57,13 @@ export default (req, res, next) => {
   //   </html>
   // `;
   let index = templateHtml.search("</div>"); // 找到 root 的下一个字符 插入渲染好的html
+  let insertJs =`
+  <script>
+  window._store_ = ${JSON.stringify(state)}
+  </script>
+  `
   templateHtml =
-    templateHtml.slice(0, index) + html + templateHtml.slice(index) + style;
+    templateHtml.slice(0, index) + html + templateHtml.slice(index) + insertJs;
   //console.log(templateHtml, "html");
   res.send(templateHtml);
 
